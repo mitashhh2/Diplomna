@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://8f6c8n7t8e48"]
+
+[ext_resource type="Texture2D" uid="uid://osu4k0jdk3wa" path="res://level/background/sky.webp" id="1_2teqk"]
+[ext_resource type="Texture2D" uid="uid://dud80ds6rq6vr" path="res://level/background/cloud_2.webp" id="2_x8kb4"]
+[ext_resource type="Texture2D" uid="uid://dbcbwhddtu3x" path="res://level/platforms/one_way_platform.webp" id="3_5s3ey"]
+[ext_resource type="PackedScene" uid="uid://b8mvut6nu1evr" path="res://player.tscn" id="3_iepy1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvwpr"]
+size = Vector2(193, 30.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkrv1"]
+size = Vector2(20, 363)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(3, 7)
+
+[node name="Sky" type="Sprite2D" parent="."]
+position = Vector2(2, 6.99997)
+scale = Vector2(0.55957, 1.27539)
+texture = ExtResource("1_2teqk")
+
+[node name="Cloud2" type="Sprite2D" parent="."]
+position = Vector2(-176, 11)
+texture = ExtResource("2_x8kb4")
+
+[node name="Cloud3" type="Sprite2D" parent="."]
+position = Vector2(243, -82)
+texture = ExtResource("2_x8kb4")
+
+[node name="player" parent="." instance=ExtResource("3_iepy1")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="OneWayPlatform" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(1, 189)
+texture = ExtResource("3_5s3ey")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1.5, 174.5)
+shape = SubResource("RectangleShape2D_hvwpr")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-87, -21.5)
+shape = SubResource("RectangleShape2D_xkrv1")
